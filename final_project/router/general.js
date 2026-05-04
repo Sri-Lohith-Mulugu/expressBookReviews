@@ -23,7 +23,6 @@ public_users.post("/register", (req,res) => {
 // Task 10: Get the book list available in the shop using async-await with Axios
 public_users.get('/', async function (req, res) {
   try {
-    // Simulating an external call to the local server as per requirement
     const response = await axios.get("http://localhost:5000/books");
     res.status(200).send(JSON.stringify(response.data, null, 4));
   } catch (error) {
@@ -88,7 +87,7 @@ public_users.get('/review/:isbn', function (req, res) {
   }
 });
 
-// Internal endpoint to serve data for Axios calls
+// Internal helper endpoints to simulate remote data fetching for Axios
 public_users.get('/books', (req, res) => {
   res.send(JSON.stringify(books));
 });
